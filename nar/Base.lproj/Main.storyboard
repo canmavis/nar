@@ -81,7 +81,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-206" y="112"/>
+            <point key="canvasLocation" x="120" y="160"/>
         </scene>
         <!--View Controller2-->
         <scene sceneID="pVL-T0-3Pb">
@@ -154,10 +154,13 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="gobus" id="BwF-4r-1Sm"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6L3-zR-bFW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="681" y="113"/>
+            <point key="canvasLocation" x="1101" y="2"/>
         </scene>
     </scenes>
     <resources>

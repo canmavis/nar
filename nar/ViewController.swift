@@ -25,6 +25,7 @@ class ViewController: UIViewController {
         view.addGestureRecognizer(swipeUP)
         view.addGestureRecognizer(leftSwipe)
         view.addGestureRecognizer(rightSwipe)
+      //  view.addGestureRecognizer(downSwipe)
         
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard))
         view.addGestureRecognizer(tap)
@@ -40,16 +41,23 @@ class ViewController: UIViewController {
             
             
             switch swipeGesture.direction {
+                
             case UISwipeGestureRecognizerDirection.right:
                 print("Swiped right")
+                
             case UISwipeGestureRecognizerDirection.down:
+               
                 print("Swiped down")
-            self.performSegueWithIdentifier("gouser", sender: self)
+            
             case UISwipeGestureRecognizerDirection.left:
                 print("Swiped left")
+                
             case UISwipeGestureRecognizerDirection.up:
+                self.performSegue(withIdentifier: "gouser", sender: self)
+                
                 print("Swiped up")
-                self.dismiss(animated: true, completion: {});
+                
+                
             default:
                 break
             }
@@ -57,6 +65,7 @@ class ViewController: UIViewController {
     }
     func dismissKeyboard(){
         print("tıklandı")
+        
     }
 
 }

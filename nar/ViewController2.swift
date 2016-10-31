@@ -12,8 +12,28 @@ class ViewController2: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        let leftSwipe = UISwipeGestureRecognizer(target: self, action: #selector(ViewController2.handleSwipes(_:)))
+        let rightSwipe = UISwipeGestureRecognizer(target: self, action: #selector(ViewController2.handleSwipes(_:)))
+        
+        let swipeUP = UISwipeGestureRecognizer(target: self, action: #selector(self.handleSwipes(_:)))
+        
+        let swipeDOWN = UISwipeGestureRecognizer(target: self, action: #selector(self.handleSwipes(_:)))
+        
+        
+        swipeUP.direction = UISwipeGestureRecognizerDirection.up
+        leftSwipe.direction = .left
+        rightSwipe.direction = .right
+        swipeDOWN.direction = UISwipeGestureRecognizerDirection.down
+        
+        view.addGestureRecognizer(swipeUP)
+        view.addGestureRecognizer(leftSwipe)
+        view.addGestureRecognizer(rightSwipe)
+        view.addGestureRecognizer(swipeDOWN)
+        
+        //let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard))
+        //view.addGestureRecognizer(tap)
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -21,15 +41,27 @@ class ViewController2: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+    func handleSwipes(_ gesture: UIGestureRecognizer) {
+        
+        if let swipeGesture = gesture as? UISwipeGestureRecognizer {
+            
+            
+            switch swipeGesture.direction {
+            case UISwipeGestureRecognizerDirection.right:
+                print("Swiped right")
+            case UISwipeGestureRecognizerDirection.down:
+                self.performSegue(withIdentifier: "gobus", sender: self)
+                print("Swiped down")
+            
+            case UISwipeGestureRecognizerDirection.left:
+                print("Swiped left")
+            case UISwipeGestureRecognizerDirection.up:
+                print("Swiped up")
+                
+            default:
+                break
+            }
+        }
+            }
+    
 }
